@@ -17,10 +17,10 @@
 
 <script>
     // Student / Teacher Url
-    var studentTeacherUrl = "https://DOMAIN.instructure.com/login/saml"
+    var auth1 = "https://DOMAIN.instructure.com/login/saml"
 
     // Parent Url
-    var parentUrl = "https://DOMAIN.instructure.com/login/canvas"
+    var auth2 = "https://DOMAIN.instructure.com/login/canvas"
 </script>
 
 <!-- End changes area -->
@@ -78,12 +78,12 @@
             src="https://du11hjcvx0uqb.cloudfront.net/br/dist/images/login/canvas-logo-5617606953.svg">
         <div>
             <form name="redirect">
-                <label id="auth-label" for="auth-types">Choose your role</label>
+                <label id="auth-label" for="auth-types">Choose your institution</label>
                 <br>
                 <select id="auth-types" name="selection">
                     <option value="">Select...</option>
-                    <option value="studentTeacherUrl">Student or Teacher</option>
-                    <option value="parentUrl">Parent</option>
+                    <option value="auth1">Institution 1</option>
+                    <option value="auth2">Institution 2</option>
                 </select>
                 <br>
                 <input type="button" value="Login" onclick="winOpen()" id="submit" />
@@ -96,10 +96,10 @@
     function winOpen() {
         var url = document.redirect.selection.value
         switch (url) {
-            case "studentTeacherUrl":
+            case "auth1":
                 document.location.href = studentTeacherUrl;
                 break;
-            case "parentUrl":
+            case "auth2":
                 document.location.href = parentUrl;
                 break;
 
